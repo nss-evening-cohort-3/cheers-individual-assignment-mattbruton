@@ -30,7 +30,7 @@ namespace Cheers
                         Console.WriteLine("Give me an " + letterToLower + "...");
                     }
                     // If letter is not a vowel, use "a" instead of "an".
-                    else
+                else
                     {
                         Console.WriteLine("Give me a " + letterToLower + "...");
                     }
