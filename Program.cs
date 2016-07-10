@@ -25,9 +25,11 @@ namespace Cheers
                 string letterToLower = letter.ToString().ToLower();
                 // Check if each letter is a vowel so we can write proper English.
                 if (vowels.Contains(letterToLower))
+                    // If true, use "an".
                     {
                         Console.WriteLine("Give me an " + letterToLower + "...");
                     }
+                    // If letter is not a vowel, use "a" instead of "an".
                     else
                     {
                         Console.WriteLine("Give me a " + letterToLower + "...");
