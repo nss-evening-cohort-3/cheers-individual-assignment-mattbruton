@@ -13,7 +13,6 @@ namespace Cheers
 
             // Prompt user for their name.
             string userName = Console.ReadLine();
-            string[] vowels = { "a", "e", "i", "o", "u" };
             
             // Greet user before the cheer.
             Console.WriteLine("Get ready for your cheer, " + userName + "!");
@@ -23,6 +22,7 @@ namespace Cheers
             {   
                 // Make each letter in userName lower case for cheer.
                 string letterToLower = letter.ToString().ToLower();
+                string[] vowels = { "a", "e", "i", "o", "u" };
                 // Check if each letter is a vowel so we can write proper English.
                 if (vowels.Contains(letterToLower))
                     // If true, use "an".
