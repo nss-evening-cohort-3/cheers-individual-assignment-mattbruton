@@ -23,17 +23,19 @@ namespace Cheers
                 // Make each letter in userName lower case for cheer.
                 string letterToLower = letter.ToString().ToLower();
                 string[] vowels = { "a", "e", "i", "o", "u" };
+                string correctArticle;
                 // Check if each letter is a vowel so we can write proper English.
                 if (vowels.Contains(letterToLower))
                     // If true, use "an".
                     {
-                        Console.WriteLine("Give me an " + letterToLower + "...");
+                        correctArticle = "an";
                     }
                     // If letter is not a vowel, use "a" instead of "an".
                 else
                     {
-                        Console.WriteLine("Give me a " + letterToLower + "...");
+                        correctArticle = "a";
                     }
+                Console.WriteLine("Give me " + correctArticle + " " + letterToLower + "...");
             }
 
             // Display userName in upper case and tell them they are wonderful.
