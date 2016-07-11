@@ -16,10 +16,6 @@ namespace Cheers
             Console.Write(prompt);
 
             string userName = Console.ReadLine();
-
-            Console.WriteLine(userName);
-
-
         }
     }
 }
