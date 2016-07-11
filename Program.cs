@@ -11,11 +11,15 @@ namespace Cheers
         {
             Console.WriteLine("What is your name?");
 
+            string prompt = "> ";
+
             // Prompt user for their name.
+            Console.Write(prompt);
             string userName = Console.ReadLine();
 
             Console.WriteLine("When is your birthdate?");
 
+            Console.Write(prompt);
             string userDateInput = Console.ReadLine();
             
             // Greet user before the cheer.
