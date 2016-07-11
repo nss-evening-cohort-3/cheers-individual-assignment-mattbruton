@@ -32,14 +32,14 @@ namespace Cheers
                 // Check if each letter is a vowel so we can write proper English.
                 if (vowels.Contains(letterToLower))
                     // If true, use "an".
-                    {
-                        correctArticle = "an";
-                    }
+                {
+                    correctArticle = "an";
+                }
                     // If letter is not a vowel, use "a" instead of "an".
                 else
-                    {
-                        correctArticle = "a";
-                    }
+                {
+                    correctArticle = "a";
+                }
                     
                 Console.WriteLine("Give me " + correctArticle + " " + letterToLower + "...");
             }
@@ -47,31 +47,40 @@ namespace Cheers
             // Display userName in upper case and tell them they are wonderful.
             Console.WriteLine(userName.ToUpper() + "... is GRAND!");
 
+            
             int currentYear = DateTime.Today.Year;
             
             DateTime date1 = DateTime.Today;
 
+            // Splitting the user input from their birthdate to make an array of two items. Split on the '/'.
             char delimiter = '/';
             string[] dateInfo = userDateInput.Split(delimiter);
 
             int userMonth = Int32.Parse(dateInfo[0]);
             int userDay = Int32.Parse(dateInfo[1]);
 
+            // Should return current year, input before /, input after /
             DateTime date2 = new DateTime(currentYear, userMonth, userDay);
 
+            // Checking to see if the user's birthday has already passed in the current year
             if (DateTime.Compare(date1, date2) == 1)
             {
-                Console.WriteLine("fix plz");
+                // Birthday has passed, checking against the following year
                 currentYear = DateTime.Today.Year + 1;
             }
 
+            // Might be able to do away with this in refactoring -- had to check date2 again after conditional
             date2 = new DateTime(currentYear, userMonth, userDay);
+
+            // Subtract the number of days between furthest date (date2) and today's date (date1)
             TimeSpan daysTil = date2.Subtract(date1);
             
+            // If today's date is user's birthday, send them a special message!
             if (daysTil.Days.ToString() == "0")
             {
                 Console.WriteLine("It's your birthday!");
             }
+            // If not, let them know how many days until their birthdate.
             else 
             {
                 Console.WriteLine("There are " + daysTil.Days.ToString() + " days til your next birthday.");
