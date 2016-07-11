@@ -8,10 +8,18 @@ namespace Cheers
     public class Program
     {
         public static void Main(string[] args)
-        {
+        {   
             Console.WriteLine("What's your name?");
 
+            string prompt = "> ";
+
+            Console.Write(prompt);
+
             string userName = Console.ReadLine();
+
+            Console.WriteLine(userName);
+
+
         }
     }
 }
