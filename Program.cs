@@ -30,7 +30,7 @@ namespace Cheers
             {   
                 // Make each letter in userName lower case for cheer.
                 string letterToLower = letter.ToString().ToLower();
-                string[] vowels = { "a", "e", "i", "o", "u" };
+                string vowels =  "aeiou";
                 string correctArticle;
 
                 // Check if each letter is a vowel so we can write proper English.
