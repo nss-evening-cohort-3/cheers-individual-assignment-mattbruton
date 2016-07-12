@@ -16,6 +16,12 @@ namespace Cheers
 
             string[] vowels = {"a","e","i","o","u"};
 
+            // Example of base for loop.
+            // for (int i = 0; i < userName.Length; i++)  
+            // {
+            //     Console.WriteLine(userName[i]);
+            // }
+
             foreach (char letter in userName)
             {
                 string letterToLower = letter.ToString().ToLower();
