@@ -13,6 +13,7 @@ namespace Cheers
             //Variables section
             string prompt = "> ";
             string cheerPrefix = "Give me a";
+            string vowelArticleFix;
 
 
             Console.WriteLine("What's your name?");
@@ -31,7 +32,6 @@ namespace Cheers
             foreach (char letter in userName)
             {
                 string letterToLower = letter.ToString().ToLower();
-                string vowelArticleFix;
                 if (vowels.Contains(letterToLower))
                 {
                     vowelArticleFix = "n";
