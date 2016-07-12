@@ -9,8 +9,14 @@ namespace Cheers
     {
         public static void Main(string[] args)
         {   
-            Console.WriteLine("What's your name?");
+
+            //Variables section
             string prompt = "> ";
+            string cheerPrefix = "Give me a";
+
+
+            Console.WriteLine("What's your name?");
+            
             Console.Write(prompt);
             string userName = Console.ReadLine();
 
@@ -25,16 +31,16 @@ namespace Cheers
             foreach (char letter in userName)
             {
                 string letterToLower = letter.ToString().ToLower();
-                string properArticle;
+                string vowelArticleFix;
                 if (vowels.Contains(letterToLower))
                 {
-                    properArticle = "an";
+                    vowelArticleFix = "n";
                 }
                 else
                 {
-                    properArticle = "a";
+                    vowelArticleFix = "";
                 }
-                Console.WriteLine("Give me " + properArticle + " " + letterToLower);
+                Console.WriteLine(cheerPrefix + vowelArticleFix + " " + letterToLower);
             }
             Console.WriteLine(userName.ToUpper() + " is.. GRAND!");
         }
