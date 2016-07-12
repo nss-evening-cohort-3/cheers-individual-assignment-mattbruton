@@ -12,6 +12,10 @@ namespace Cheers
             Console.WriteLine("What is your name?");
 
             string prompt = "> ";
+            char delimiter = '/';
+            int currentYear = DateTime.Today.Year;
+            DateTime date1 = DateTime.Today;
+            
 
             // Prompt user for their name.
             Console.Write(prompt);
@@ -21,6 +25,19 @@ namespace Cheers
 
             Console.Write(prompt);
             string userDateInput = Console.ReadLine();
+            string[] dateInfo = userDateInput.Split(delimiter);
+            int userMonth = Int32.Parse(dateInfo[0]);
+            int userDay = Int32.Parse(dateInfo[1]);
+            
+            while (userMonth > 12)
+            {   
+                Console.WriteLine("Please enter a valid date.");
+                Console.Write(prompt);
+                userDateInput = Console.ReadLine();
+                dateInfo = userDateInput.Split(delimiter);
+                userMonth = Int32.Parse(dateInfo[0]);
+                userDay = Int32.Parse(dateInfo[1]);
+            }
             
             // Greet user before the cheer.
             Console.WriteLine("Get ready for your cheer, " + userName + "!");
@@ -52,16 +69,12 @@ namespace Cheers
             Console.WriteLine(userName.ToUpper() + "... is GRAND!");
 
             
-            int currentYear = DateTime.Today.Year;
-            
-            DateTime date1 = DateTime.Today;
+           
 
             // Splitting the user input from their birthdate to make an array of two items. Split on the '/'.
-            char delimiter = '/';
-            string[] dateInfo = userDateInput.Split(delimiter);
+            
 
-            int userMonth = Int32.Parse(dateInfo[0]);
-            int userDay = Int32.Parse(dateInfo[1]);
+            
 
             // Should return current year, input before /, input after /
             DateTime date2 = new DateTime(currentYear, userMonth, userDay);
