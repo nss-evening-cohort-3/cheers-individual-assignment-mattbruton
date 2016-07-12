@@ -17,7 +17,7 @@ namespace Cheers
 
             string userName = Console.ReadLine();
 
-            Console.WriteLine(userName.ToUpper() + " is .. GRAND!");
+            Console.WriteLine(userName.ToUpper() + " is.. GRAND!");
         }
     }
 }
