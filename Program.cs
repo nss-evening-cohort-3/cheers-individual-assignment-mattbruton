@@ -24,6 +24,13 @@ namespace Cheers
 
             Console.Write(prompt);
             string userDateInput = Console.ReadLine();
+
+            while (userDateInput.Contains("/") == false || userDateInput.Length > 5)
+            {
+                Console.WriteLine("Please enter a valid date.");
+                Console.Write(prompt);
+                userDateInput = Console.ReadLine();
+            }
             string[] dateInfo = userDateInput.Split(delimiter);
             int userMonth = Int32.Parse(dateInfo[0]);
             int userDay = Int32.Parse(dateInfo[1]);
