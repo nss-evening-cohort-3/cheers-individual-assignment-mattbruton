@@ -16,7 +16,6 @@ namespace Cheers
             int currentYear = DateTime.Today.Year;
             DateTime date1 = DateTime.Today;
             
-
             // Prompt user for their name.
             Console.Write(prompt);
             string userName = Console.ReadLine();
@@ -67,14 +66,6 @@ namespace Cheers
 
             // Display userName in upper case and tell them they are wonderful.
             Console.WriteLine(userName.ToUpper() + "... is GRAND!");
-
-            
-           
-
-            // Splitting the user input from their birthdate to make an array of two items. Split on the '/'.
-            
-
-            
 
             // Should return current year, input before /, input after /
             DateTime date2 = new DateTime(currentYear, userMonth, userDay);
