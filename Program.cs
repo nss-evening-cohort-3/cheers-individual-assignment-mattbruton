@@ -29,7 +29,7 @@ namespace Cheers
             int userMonth = Int32.Parse(dateInfo[0]);
             int userDay = Int32.Parse(dateInfo[1]);
             
-            while (userMonth > 12)
+            while (userMonth > 12 || userDay > DateTime.DaysInMonth(currentYear, userMonth))
             {   
                 Console.WriteLine("Please enter a valid date.");
                 Console.Write(prompt);
