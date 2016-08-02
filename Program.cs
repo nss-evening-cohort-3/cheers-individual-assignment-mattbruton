@@ -49,7 +49,6 @@ namespace Cheers
     {
         public static void Main(string[] args)
         {
-
             Questions.AskName();
             Questions.AskBirthdate();
 
