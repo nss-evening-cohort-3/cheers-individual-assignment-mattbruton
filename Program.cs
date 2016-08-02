@@ -1,55 +1,29 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Cheers
 {
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
+    public class Questions {
+
+        public static string userName;
+        public static string userDateInput;
+        public static string prompt = "> ";
+        public static void AskName() {
             Console.WriteLine("What is your name?");
-
-            string prompt = "> ";
-            char delimiter = '/';
-            int currentYear = DateTime.Today.Year;
-            DateTime date1 = DateTime.Today;
-            
-            // Prompt user for their name.
             Console.Write(prompt);
-            string userName = Console.ReadLine();
-
+            userName = Console.ReadLine();
+        }
+        public static void AskBirthdate() {
             Console.WriteLine("When is your birthdate?");
-
             Console.Write(prompt);
-            string userDateInput = Console.ReadLine();
+            userDateInput = Console.ReadLine();
+        }
+    }
 
-            while (userDateInput.Contains("/") == false || userDateInput.Length > 5)
-            {
-                Console.WriteLine("Please enter a valid date.");
-                Console.Write(prompt);
-                userDateInput = Console.ReadLine();
-            }
-            string[] dateInfo = userDateInput.Split(delimiter);
-            int userMonth = Int32.Parse(dateInfo[0]);
-            int userDay = Int32.Parse(dateInfo[1]);
-            
-            while (userMonth > 12 || userDay > DateTime.DaysInMonth(currentYear, userMonth))
-            {   
-                Console.WriteLine("Please enter a valid date.");
-                Console.Write(prompt);
-                userDateInput = Console.ReadLine();
-                dateInfo = userDateInput.Split(delimiter);
-                userMonth = Int32.Parse(dateInfo[0]);
-                userDay = Int32.Parse(dateInfo[1]);
-            }
-            
+    public class CheerGenerator {
+        public static void Cheer(){
             // Greet user before the cheer.
-            Console.WriteLine("Get ready for your cheer, " + userName + "!");
-
-            // Loop through each character in userName and print to console along with cheer message.
-            foreach (char letter in userName)
+            Console.WriteLine("Get ready for your cheer, " + Questions.userName + "!");
+            foreach (char letter in Questions.userName)
             {   
                 // Make each letter in userName lower case for cheer.
                 string letterToLower = letter.ToString().ToLower();
@@ -63,16 +37,50 @@ namespace Cheers
                     correctArticle = "an";
                 }
                     // If letter is not a vowel, use "a" instead of "an".
-                else
-                {
+                else {
                     correctArticle = "a";
                 }
                     
                 Console.WriteLine("Give me " + correctArticle + " " + letterToLower + "...");
             }
+        }
+    }
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+
+            Questions.AskName();
+            Questions.AskBirthdate();
+
+            char delimiter = '/';
+            int currentYear = DateTime.Today.Year;
+            DateTime date1 = DateTime.Today;
+            
+            while (Questions.userDateInput.Contains("/") == false || Questions.userDateInput.Length > 5)
+            {
+                Console.WriteLine("Please enter a valid date. For example : 12/31");
+                Console.Write(Questions.prompt);
+                Questions.userDateInput = Console.ReadLine();
+            }
+            string[] dateInfo = Questions.userDateInput.Split(delimiter);
+            int userMonth = Int32.Parse(dateInfo[0]);
+            int userDay = Int32.Parse(dateInfo[1]);
+            
+            while (userMonth > 12 || userDay > DateTime.DaysInMonth(currentYear, userMonth))
+            {   
+                Console.WriteLine("Please enter a valid date. For example : 12/31");
+                Console.Write(Questions.prompt);
+                Questions.userDateInput = Console.ReadLine();
+                dateInfo = Questions.userDateInput.Split(delimiter);
+                userMonth = Int32.Parse(dateInfo[0]);
+                userDay = Int32.Parse(dateInfo[1]);
+            }
+
+            CheerGenerator.Cheer();
 
             // Display userName in upper case and tell them they are wonderful.
-            Console.WriteLine(userName.ToUpper() + "... is GRAND!");
+            Console.WriteLine(Questions.userName.ToUpper() + "... is GRAND!");
 
             // Should return current year, input before /, input after /
             DateTime date2 = new DateTime(currentYear, userMonth, userDay);
